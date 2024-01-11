@@ -16,7 +16,7 @@ def __auth_handler():
 
 __debug_mode = False
 start_date = None
-start_date = datetime.strptime('17.12.23', '%d.%m.%y').replace(tzinfo=timezone.utc)
+#start_date = datetime.strptime('17.12.23', '%d.%m.%y').replace(tzinfo=timezone.utc)
 
 if not start_date:
     parsed_arg = parse_argcl(argv)
