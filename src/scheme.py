@@ -19,8 +19,8 @@ class Video(BaseModel):
     id: int
     access_key: str
     owner_id: int
-    width: int
-    height: int
+    width: int = None 
+    height: int = None 
     
 
 class attachments(BaseModel):

@@ -58,8 +58,8 @@ if start_date:
             for v in post.video:
                 resp = vk.video.get(videos=v['id_video'])
                 v['url_player'] = resp['items'][0]['player']
-                v['width'] = resp['items'][0]['width']
-                v['height'] = resp['items'][0]['height']
+                v['width'] = resp['items'][0].get('width',0)
+                v['height'] = resp['items'][0].get('height',0)
 
         if post.date_post < start_date:
             stop = True

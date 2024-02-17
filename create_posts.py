@@ -8,7 +8,7 @@ from src.parse_arg_cl import parse_argcl
 from src.wp_api.wp_api import WP_API
 
 START_DATE = None
-#START_DATE = datetime.strptime('17.12.23', '%d.%m.%y').replace(tzinfo=timezone.utc)
+START_DATE = datetime.strptime('09.02.24', '%d.%m.%y').replace(tzinfo=timezone.utc)
 
 if not START_DATE:
     START_DATE = parse_argcl(argv)[0]
