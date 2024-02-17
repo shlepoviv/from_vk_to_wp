@@ -16,7 +16,7 @@ def __auth_handler():
 
 __debug_mode = False
 start_date = None
-#start_date = datetime.strptime('17.12.23', '%d.%m.%y').replace(tzinfo=timezone.utc)
+start_date = datetime.strptime('09.02.24', '%d.%m.%y').replace(tzinfo=timezone.utc)
 
 if not start_date:
     parsed_arg = parse_argcl(argv)
@@ -49,7 +49,7 @@ if start_date:
         else:
             item = resp['items'][0]
 
-        if item["inner_type"] != "wall_wallpost":
+        if item["inner_type"] != "wall_wallpost" or item.get("is_pinned",0) == 1:
             continue
 
         post = PostWall.load_from_api(item)

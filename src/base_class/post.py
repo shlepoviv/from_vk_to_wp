@@ -95,15 +95,15 @@ class PostWall:
     def write_to_db(self) -> None:
         db = DB()
 
-
-        query = db.get_insert_query('post', self.list_felds_in_table_post)
-        param = dict({(i, self.__dict__[i])
-                     for i in self.list_felds_in_table_post})
-        db.get_data(query, param)
-        if self.photo:
-            self._write_photo_to_db()
-        if self.video:
-            self._write_video_to_db()
+        if not PostWall.load_post_fromdb(self.id):
+            query = db.get_insert_query('post', self.list_felds_in_table_post)
+            param = dict({(i, self.__dict__[i])
+                        for i in self.list_felds_in_table_post})
+            db.get_data(query, param)
+            if self.photo:
+                self._write_photo_to_db()
+            if self.video:
+                self._write_video_to_db()
 
     def _write_photo_to_db(self) -> None:
         db = DB()

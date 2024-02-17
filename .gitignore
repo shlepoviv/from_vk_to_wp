@@ -4,3 +4,4 @@ data/
 venv/
 config.ini
 vk_config*
+.vscode/
